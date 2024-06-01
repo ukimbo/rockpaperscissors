@@ -47,7 +47,24 @@ function playRound(humanChoice, computerChoice) {
     } else if (computerChoice == "Scissors" && humanChoice == "Rock") {
         console.log("W! Rock beats scissors.");
         humanScore += 1;
-    } else if (humanChoice == "Invalid Input") {
-        console.log("Invalid Input, restart round.");
     }
 }
+
+function playGame() {
+    let roundsPlayed = 0;
+    while (roundsPlayed < 5) {
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+        roundsPlayed++;
+    }
+    if (humanScore > computerScore) {
+        console.log("You win the game! Congrats.");
+    } else if (humanScore < computerScore) {
+        console.log("You lost the game! Das tuff.");
+    } else {
+        console.log("You tied. That's fine I guess.");
+    }
+}
+
+playGame();
